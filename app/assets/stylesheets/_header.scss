@@ -24,19 +24,19 @@
     }
   }
 
-.header-box {
-  width: 100%;
-  display: flex;
-  justify-content:space-between;
-  line-height:38px;
-  padding: 0 8px;
-  &__brand {
+  .header-box {
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    line-height:38px;
+    padding: 0 8px;
+    &__brand {
 
+    }
+    &__search {
+      
+    }
   }
-  &__search {
-    
-  }
-}
 
 
 
@@ -46,6 +46,9 @@
   }
   .size16 {
     font-size: 16px;
+  }
+  .float-left {
+    float: left;
   }
 
   .header-container {
