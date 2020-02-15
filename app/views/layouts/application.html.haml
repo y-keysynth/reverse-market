@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Reverse Market
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    #wrapper
+      .header
+        .header__brand
+          .header-box
+            .header-box__brand
+              = link_to "[FF XIV Fan site]", root_path, class: "size18"\
+              %span.size16 - 逆マーケットボード -
+            .header-box__search
+
+              #notice= notice
+
+        .header__l-header
+          .header-container
+            .head-my-character
+              - if user_signed_in?
+                .head-my-character__name
+                  = current_user.name
+                .head-my-character__status
+                  = link_to "ログアウト", logout_path, data: { confirm: '本当にログアウトしますか?' }
+              - else
+                .head-my-character__name
+                  = link_to "ログイン", login_path
+                .head-my-character__status
+                  = link_to "新規登録", signup_path
+        .header__main-nav
+
+          = search_form_for @search, url: items_path do |f|
+            = f.text_field :title_or_details_cont, class: "field_width300px", placeholder: 'キーワード検索'
+            = f.submit ("検索する"), class: "display_none"
+
+    = yield
+

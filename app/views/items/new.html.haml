@@ -1,0 +1,13 @@
+#wrapper
+  .main
+    .main__list.shadow
+      .main__list__page-title
+        「買います」募集を作る
+      .item-box
+        = render 'form'
+        .back-edit-destroy-box.margin-top-10
+          .back-edit-destroy-box__back
+            = link_to '戻る', items_path
+
+    .main__side-menu
+      = render 'side-menu'

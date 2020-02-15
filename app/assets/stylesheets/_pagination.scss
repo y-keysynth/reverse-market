@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 20px;
+  background-color: #383838;
+  width: 614px;
+  height: 40px;
+  line-height: 30px;
+  padding: 5px 0;
+  box-sizing: border-box;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  a {
+    color: #e5e5e5;
+    padding: 0 0 0 20px;
+  }
+  .current {
+    color: #e5e5e5;
+    background-color: #696969;
+    padding: 0 0 0 20px;
+  }
+  a:hover {
+    background-color: #696969;
+    border-radius: 50%;
+  }
+}
+.shadow {
+  box-shadow: 2px 2px 5px black;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}

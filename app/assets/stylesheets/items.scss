@@ -1,0 +1,82 @@
+.triangle {
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ラベル部分 右上に表示 */
+.triangle::before {
+  content: "";
+  top: 0;
+  right: 0;
+  border-bottom: 6em solid transparent;
+  border-right: 6em solid #ea352d; /* ラベルの色はここで変更 */
+  position: absolute;
+  z-index: 100;
+}
+.triangle::after {
+  content: "売買成立";
+  display: block;
+  top: 25px;
+  transform: rotate(45deg);
+  color: #fff; /* 文字色はここで変更 */
+  right: 0;
+  position: absolute;
+  z-index: 101;
+}
+
+// 売りますボタン
+.btn-flat-border {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: red;
+  border: solid 2px red;
+  border-radius: 4px;
+  transition: .4s;
+  background-color: #262626;
+}
+
+.btn-flat-border:hover {
+  background: red;
+  color: white;
+}
+
+.field-box {
+  &__title {
+    padding: 0 10px 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ccc;
+  }
+  &__form {
+    margin-bottom: 16px;
+    padding: 0 5px;
+  }
+}
+
+.form-size-title {
+  width: 300px;
+  height: 16px;
+  border-radius: 6px;
+}
+.form-size-price {
+  border-radius: 6px;
+  height: 16px;
+}
+.form-size-details {
+  width: 100%;
+  height: 100px;
+  border-radius: 6px;
+}
+.btn-width100 {
+  width: 100px;
+}
+
+.submit-box {
+  text-align: center;
+  margin-bottom: 10px;
+  }

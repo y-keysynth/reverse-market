@@ -1,0 +1,31 @@
+= form_for @item do |f|
+  - if @item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+      %ul
+        - @item.errors.full_messages.each do |message|
+          %li= message
+
+  .field-box
+    .field-box__title
+      = f.label :title, "タイトル"
+    .field-box__form
+      「
+      = f.text_field :title, class: "form-size-title"
+      」を買います！！
+  .field-box
+    .field-box__title
+      = f.label :price, "値段"
+    .field-box__form
+      = f.number_field :price, class: "form-size-price"
+      ギル
+  .field-box
+    .field-box__title
+      = f.label :details, "詳細"
+    .field-box__form
+      = f.text_area :details, class: "form-size-details"
+  .submit-box
+    -if @item.id == nil
+      = f.submit '募集する', class: "btn-flat-border btn-width100"
+    -else
+      = f.submit '編集する', class: "btn-flat-border btn-width100"

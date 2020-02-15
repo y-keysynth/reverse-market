@@ -1,0 +1,235 @@
+#wrapper {
+  .main {
+    display: flex;
+    margin: 0 auto;
+    padding: 10px 0 40px;
+    width: 940px;
+    align-items: flex-start;
+    &__list {
+      margin-right: 10px;
+      width: 614px;
+      color: #e5e5e5;
+    &__page-title {
+      height: 32px;
+      padding: 4px 8px 4px 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #334b80;
+      line-height: 32px;
+      border-radius: 6px 6px 0 0;
+      }
+    &__pagination-box {
+      width: 614px;
+      height: 40px;
+      background-color: #383838;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    }
+    &__side-menu {
+      margin: 0 0 0 10px;
+      color: #e5e5e5;
+    }
+  }
+
+  .item-box {
+    width: 594px;
+    padding: 8px 10px;
+    background-color: #262626;
+    border-bottom:1px groove #999999;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    &__day {
+      height: 18px;
+      margin: 0 0 4px;
+      font-size: 12px;
+      display: flex;
+    }
+    &__title {
+      margin-bottom: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    &__price {
+      height: 19px;
+      padding-left: 16px;
+      font-size: 15px;
+    }
+    &__name {
+      height: 40px;
+      padding-left: 40px;
+      line-height: 40px;
+      display: flex;
+      .edit-destroy-box {
+        display: flex;
+        margin:0 7px 0 auto;
+      }
+    }
+    &__details {
+      padding: 20px 40px 10px;
+    }
+  }
+
+  .margin-left-10 {
+    margin-left: 8px;
+  }
+  .margin-bottom-10 {
+    margin-bottom: 8px;
+    border-bottom: solid 8px #333333;
+  }
+  .margin-top-10 {
+    padding-top: 8px;
+    border-top: solid 8px #333333;
+  }
+
+  .link-hover:hover {
+    background-color: #333;
+    outline: 1px groove #c0c0c0;
+  }
+
+  .back-edit-destroy-box {
+    display: flex;
+    &__back {
+      margin:0 auto 8px 7px;
+    }
+    &__edit-destroy {
+      display: flex;
+      margin:0 7px 8px auto;
+    }
+  }
+
+  .transaction-details {
+    text-align: center;
+  }
+
+  .transaction-box {
+    height: 100px;
+    margin: 10px 50px;
+    border: solid 1px red;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    &__name {
+    }
+    &__arrow {
+    }
+  }
+
+  .arrow-box {
+    &__upper {
+      margin: 20px;
+    }
+    &__lower {
+      margin: 20px;
+      
+    }
+  }
+
+  // 矢印
+  .arrow_l, /* 左向き */
+  .arrow_r /* 右向き */
+  {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid red;
+    line-height: 1em;
+  }
+
+  .arrow_l{
+    padding-left: 2em;
+    padding-right: 0.5em;
+  }
+
+  .arrow_r{
+    padding-left: 0.5em;
+    padding-right: 2em;
+  }
+
+  /* 矢印の先端 */
+  .arrow_l::before {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    border-left: 1.5em solid #262626;
+    border-bottom: 0.7em solid red;
+    content: "";
+  }
+  .arrow_r::after {
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    border-right: 1.5em solid #262626;
+    border-bottom: 0.7em solid red;
+    content: "";
+  }
+
+  .iine__button{
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  .yellow {
+    color: yellow;
+  }
+  .orange {
+    color: orange;
+  }
+
+  .item-container {
+    width: 594px;
+    padding: 8px 10px;
+    margin-bottom: 1px;
+    background-color: #262626;
+    border-bottom:1px groove #999999;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    position:relative;
+    &__day {
+      height: 18px;
+      margin: 0 0 4px;
+      font-size: 12px;
+    }
+    &__title {
+      margin-bottom: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    &__price {
+      height: 19px;
+      padding-left: 16px;
+      font-size: 15px;
+    }
+    &__name {
+      padding-left: 40px;
+      line-height: 40px;
+      display: inline-block;
+    }
+    &__edit-destroy-box {
+      display: flex;
+      position:absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    &__details {
+      padding: 20px 40px 10px;
+    }
+    &__watch {
+      position:absolute;
+      top: 8px;
+      left: 123px;
+    }
+  }
+
+  .display_none {
+    display: none;
+  }
+  .field_width300px {
+    width: 300px;
+  }
+}

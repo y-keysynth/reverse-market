@@ -1,0 +1,31 @@
+#wrapper {
+  .side-menu {
+    width: 300px;
+    &__page-title {
+      height: 32px;
+      background: #662929;
+      padding: 4px 8px 4px 10px;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 6px 6px 0 0;
+      line-height: 32px;
+    }
+    &__list {
+      height: 48px;
+      padding: 0 0 0 8px;
+      font-size: 14px;
+      line-height: 48px;
+      background-color: #262626;
+      border-bottom:1px groove #999999;
+    }
+    &__empty-box {
+      height: 40px;
+      background-color: #383838;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+  }
+  .link-hover:hover {
+    background-color: #333;
+  }
+}

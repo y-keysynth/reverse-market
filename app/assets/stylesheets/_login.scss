@@ -1,0 +1,51 @@
+#wrapper {
+  .login-container {
+    margin: 0 auto;
+    width: 350px;
+    color: #e5e5e5;
+    &__title {
+      padding: 6px 8px 5px;
+      margin: 10px 0 ;
+      text-align: center;
+      font-size: 16px;
+      background-color: #bf4358;
+      border-radius: 16px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+    &__form {
+      color: #404040;
+      background-color: #e6e6e6;
+      font-size: 14px;
+      margin: 0;
+      padding: 10px;
+      border-radius: 16px;
+    }
+  }
+
+
+  .field {
+    padding: 10px 30px;
+  }
+
+  .actions {
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    color: #e5e5e5;
+    border: solid 2px red;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: #bf4358;
+    box-sizing: border-box;
+  }
+  
+  .actions:hover {
+    background: red;
+    color: #e5e5e5;
+  }
+
+}

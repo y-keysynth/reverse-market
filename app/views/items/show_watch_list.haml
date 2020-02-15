@@ -1,0 +1,38 @@
+#wrapper
+  .main
+    .main__list.shadow
+      .main__list__page-title
+        ウォッチリストをした商品
+      - @items.each do |item|
+        = link_to(item) do
+          .item-container.link-hover
+            - if item.seller_id != nil
+              .triangle
+              .item-container__day
+                = item.created_at.to_s(:datetime_jp)
+              .item-container__title
+                = "「#{item.title}」"
+              .item-container__price
+                = "#{item.price.to_s(:delimited)} ギル"
+            - else
+              .item-container__day
+                = item.created_at.to_s(:datetime_jp)
+              .item-container__title
+                = "「#{item.title}」"
+              .item-container__price
+                = "「#{item.title}」を買います！！"
+            .item-container__name
+              = item.user.name
+            - if current_user == nil
+            - elsif current_user.id == item.user_id and item.seller_id == nil
+              .item-container__edit-destroy-box
+                = link_to '編集', edit_item_path(item)
+                = link_to '削除', item, class: "margin-left-10", method: :delete, data: { confirm: '本当に削除しますか?' }
+            .item-container__watch
+              = render partial: 'items/item', locals:{ item: item }
+      
+      .main__list__pagination-box
+        = paginate @items
+                    
+    .main__side-menu
+      = render 'side-menu'

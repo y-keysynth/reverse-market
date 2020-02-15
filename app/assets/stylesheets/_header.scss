@@ -1,0 +1,85 @@
+#wrapper {
+  .header {
+    &__brand {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      background-color: #1b1b1b;
+      color:#e5e5e5;
+    }
+    &__l-header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      background-color: #d6d4cf;
+    }
+    &__main-nav {
+      height: 38px;
+      padding: 0 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1b1b1b;
+      color:#e5e5e5;
+    }
+  }
+
+.header-box {
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  line-height:38px;
+  padding: 0 8px;
+  &__brand {
+
+  }
+  &__search {
+    
+  }
+}
+
+
+
+  .size18 {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  .size16 {
+    font-size: 16px;
+  }
+
+  .header-container {
+    width: 960px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .head-my-character {
+    background: #333;
+      width: 300px;
+      border-radius: 6px;
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+      min-height: 60px;
+    &__name {
+      color: #bfa34c;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 30px;
+      display: block;
+      min-height: 30px;
+      text-align: center;
+    }
+    &__status {
+      min-height: 30px;
+      text-align: right;
+      padding-right: 10px;
+      font-size: 12px;
+    }
+  }
+
+}

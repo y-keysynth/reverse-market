@@ -1,0 +1,39 @@
+#wrapper
+  .main
+    .main__list.shadow
+      .main__list__page-title
+        「買います」募集をした商品 - 売買成立
+      - @items.each do |item|
+        = link_to(item) do
+          .item-box.link-hover
+            - if item.seller_id != nil
+              .triangle
+              .item-box__day
+                = item.created_at.to_s(:datetime_jp)
+                = render partial: 'items/item', locals:{ item: item }
+              .item-box__title
+                = "「#{item.title}」"
+              .item-box__price
+                = "#{item.price.to_s(:delimited)} ギル"
+            - else
+              .item-box__day
+                = item.created_at.to_s(:datetime_jp)
+                = render partial: 'items/item', locals:{ item: item }
+              .item-box__title
+                = "「#{item.title.to_s(:delimited)}」を買います！！"
+              .item-box__price
+                = "#{item.price.to_s(:delimited)} ギル"
+            .item-box__name
+              = item.user.name
+              - if current_user == nil
+              - elsif current_user.id == item.user_id && item.seller_id == nil
+                .edit-destroy-box
+                  = link_to '編集', edit_item_path(item)
+                  = link_to '削除', item, class: "margin-left-10", method: :delete, data: { confirm: '本当に削除しますか?' }
+              - else
+              
+      .main__list__pagination-box
+        = paginate @items
+                    
+    .main__side-menu
+      = render 'side-menu'

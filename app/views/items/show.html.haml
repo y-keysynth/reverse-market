@@ -1,0 +1,91 @@
+#wrapper
+  .main
+    .main__list.shadow
+      .main__list__page-title
+        「買います」募集の詳細
+      .item-box
+        .item-box__name.margin-bottom-10
+          = @item.user.name
+        - if @item.seller_id != nil
+          .triangle
+          .item-box__day
+            = @item.created_at.to_s(:datetime_jp)
+            = render partial: 'items/item', locals:{ item: @item }
+          .item-box__title
+            = "「#{@item.title}」"
+          .item-box__price
+            = "#{@item.price.to_s(:delimited)} ギル"
+          .item-box__details
+            = @item.details
+          - if current_user == nil
+          - elsif @item.seller_id == current_user.id
+            .transaction-details.margin-top-10
+              = "あなたは#{@item.user.name}さんへ商品を売りました。"
+              %br
+              %br
+              = "商品：#{@item.title}"
+              %br
+              = "お金：#{@item.price}"
+            .transaction-box
+              .transaction-box__name
+                あなた
+              .transaction-box__arrow
+                .arrow-box
+                  .arrow-box__upper
+                    .arrow_r
+                      商品
+                  .arrow-box__lower
+                    .arrow_l
+                      お金
+              .transaction-box__name
+                = @item.user.name
+          - elsif @item.seller_id != current_user.id and @item.user.id != current_user.id
+          - else
+            .transaction-details.margin-top-10
+              = "あなたは#{@sell_user.name}さんから商品を買いました。"
+              %br
+              %br
+              = "お金：#{@item.price}"
+              %br
+              = "商品：#{@item.title}"
+            .transaction-box
+              .transaction-box__name
+                あなた
+              .transaction-box__arrow
+                .arrow-box
+                  .arrow-box__upper
+                    .arrow_r
+                      お金
+                  .arrow-box__lower
+                    .arrow_l
+                      商品
+              .transaction-box__name
+                = @item.user.name
+        - else
+          .item-box__day
+            = @item.created_at.to_s(:datetime_jp)
+            = render partial: 'items/item', locals:{ item: @item }
+          .item-box__title
+            = "「#{@item.title}」を買います！！"
+          .item-box__price
+            = "#{@item.price.to_s(:delimited)} ギル"
+          .item-box__details
+            = @item.details
+          - if current_user == nil
+          - elsif @item.seller_id == nil and current_user.id != @item.user_id
+            = form_for @item do |f|
+              = f.hidden_field :seller_id, value: current_user.id
+              = f.submit '売ります', class: "btn-flat-border", data: { confirm: ' 本当に売りますか?' }
+          - else
+        .back-edit-destroy-box.margin-top-10
+          .back-edit-destroy-box__back
+            = link_to '戻る', :back
+          .back-edit-destroy-box__edit-destroy
+            - if current_user == nil
+            - elsif current_user.id == @item.user_id and @item.seller_id == nil
+              = link_to '編集', edit_item_path(@item)
+              = link_to '削除', @item, class: "margin-left-10", method: :delete, data: { confirm: '本当に削除しますか?' }
+            - else
+        
+    .main__side-menu
+      = render 'side-menu'
