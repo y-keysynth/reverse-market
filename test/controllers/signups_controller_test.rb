@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class SignupsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get new" do
+    get signups_new_url
+    assert_response :success
+  end
+
 end
