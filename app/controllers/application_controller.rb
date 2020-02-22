@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
   before_action :basic_auth, if: :production? 
@@ -11,7 +12,8 @@ end
 
   # このアクションを追加
   def after_sign_in_path_for(resource)
-    "/user/#{current_user.id}"
+    # "/user/#{current_user.id}"
+    root_path
   end
 
 

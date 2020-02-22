@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ルートパス名でも良い
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    "/user/#{current_user.id}"
+    # "/user/#{current_user.id}"
+    root_path
   end
 end
