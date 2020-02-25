@@ -1,11 +1,15 @@
 class SignupsController < ApplicationController
   # helper_method :current_user
+
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "アカウント登録が完了しました。"
-      @current_user = @user
       redirect_to root_path
     else
       redirect_to signup_path
@@ -14,7 +18,7 @@ class SignupsController < ApplicationController
 
   private
     def user_params
-      params.permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
     # def current_user
