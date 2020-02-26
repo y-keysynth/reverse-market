@@ -7,13 +7,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   @user = User.find_by(id: params[:id])
   # end
 
+  # @@one_time_ra_password = SecureRandom.alphanumeric()
+  @@one_time_ra_password = "1234567890"
   def new
     @user = User.new
-    # @one_time_ra_password = SecureRandom.alphanumeric()
-    @one_time_ra_password = 1234567890
+    @one_time_ra_password = @@one_time_ra_password 
   end
 
   def create
+    one_time_ra_password = @@one_time_ra_password 
     @user = User.new(user_params)
     check = Scraping.lodestone_url(@user.url)
     @user_login = User.new(
@@ -24,13 +26,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       server: check[3],
       dc: check[4],
     )
-    if @user.password  == @user.password_confirmation
+    if @user.password  == @user.password_confirmation && one_time_ra_password == check[1]
       @user_login.save
-    #   session[:id] = @user.id
-    #   flash[:notice] = "アカウント登録が完了しました。"
-    #   redirect_to root_path
+      session[:id] = @user_login.id
+      flash[:notice] = "アカウント登録が完了しました。"
+      redirect_to root_path
     else
-    #   redirect_to signup_path
+      redirect_to signup_path
     end
   end
 
