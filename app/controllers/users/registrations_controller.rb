@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  helper_method :current_user
+  # helper_method :current_user
   # プロフィール画面用のアクションを追加
   # def detail
   #   @user = User.find_by(id: params[:id])
@@ -9,11 +9,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
+    # @one_time_ra_password = SecureRandom.alphanumeric()
+    @one_time_ra_password = 1234567890
   end
 
   def create
     @user = User.new(user_params)
+    hoge = Scraping.lodestone_url
     if @user.save
+      session[:id] = @user.id
       flash[:notice] = "アカウント登録が完了しました。"
       redirect_to root_path
     else
@@ -23,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:url, :email, :password, :password_confirmation)
   end
 
   # protected

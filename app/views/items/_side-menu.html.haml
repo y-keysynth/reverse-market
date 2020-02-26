@@ -2,15 +2,7 @@
   .side-menu.shadow 
     .side-menu__page-title
       MENU
-    - if current_user == nil
-      .side-menu__list.link-hover
-        = link_to "ログイン", login_path
-      .side-menu__list.link-hover
-        = link_to "新規登録", signup_path
-      .side-menu__list.link-hover
-        = link_to "「買います」募集一覧", items_path
-      .side-menu__empty-box
-    - else
+    - if user_signed_in?
       .side-menu__list.link-hover
         = link_to "「買います」募集一覧", items_path
       .side-menu__list.link-hover
@@ -31,4 +23,12 @@
         = link_to show_watch_list_items_path do
           %i.fas.fa-bookmark.yellow
           ウォッチリスト
+      .side-menu__empty-box
+    - else
+      .side-menu__list.link-hover
+        = link_to "ログイン", login_path
+      .side-menu__list.link-hover
+        = link_to "新規登録", signup_path
+      .side-menu__list.link-hover
+        = link_to "「買います」募集一覧", items_path
       .side-menu__empty-box
