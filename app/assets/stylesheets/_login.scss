@@ -23,7 +23,6 @@
     }
   }
 
-
   .field {
     padding: 10px 30px;
   }
@@ -48,4 +47,11 @@
     color: #e5e5e5;
   }
 
+  .password-box {
+    background: white;
+    display: inline-block;
+    padding: 3px;
+    margin: 1px;
+    border: 1px #c0c0c0 solid;
+  }
 }

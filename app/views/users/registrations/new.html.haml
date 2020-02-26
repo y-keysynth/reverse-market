@@ -5,9 +5,10 @@
     .login-container__form
       = form_with model: @user, url: signup_path do |f|
         .field
-          コメントに書く文字列
+          コメントに書くパスワード
           %br/
-          = @one_time_ra_password
+          .password-box
+            = @one_time_ra_password
         .field
           = f.label :url, "URL"
           %br/
