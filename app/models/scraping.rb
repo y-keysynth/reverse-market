@@ -9,7 +9,8 @@ class Scraping
     # puts "URL:#{blog_url}"
     blog_password = page.search('.txt_selfintroduction')
     # puts "パスワード：#{blog_password.inner_text}"
-    chara_name = page.search('.frame__chara__name')
+    chara_name2 = page.search('.frame__chara__name')
+    chara_name = chara_name2
     # puts "ユーザー名：#{chara_name.inner_text}"
     server_and_dc = page.search('.frame__chara__world')
     server = server_and_dc.inner_text.sub(/\(.*/m, "")
