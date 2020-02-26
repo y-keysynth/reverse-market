@@ -15,13 +15,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(user_params)
-    hoge = Scraping.lodestone_url
-    if @user.save
-      session[:id] = @user.id
-      flash[:notice] = "アカウント登録が完了しました。"
-      redirect_to root_path
+    check = Scraping.lodestone_url(@user.url)
+    @user2 = User.new(
+      email: @user.email,
+      password: @user.password,
+      url: check[0],
+      name: check[2],
+      server: check[3],
+      dc: check[4],
+    )
+    if @user.password  == @user.password_confirmation
+      @user2.save
+    #   session[:id] = @user.id
+    #   flash[:notice] = "アカウント登録が完了しました。"
+    #   redirect_to root_path
     else
-      redirect_to signup_path
+    #   redirect_to signup_path
     end
   end
 
