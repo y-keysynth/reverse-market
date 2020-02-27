@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  helper_method :current_user
+  # helper_method :current_user
   # プロフィール画面用のアクションを追加
   # def detail
   #   @user = User.find_by(id: params[:id])

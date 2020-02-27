@@ -15,7 +15,7 @@
           .header-box
             .header-box__brand
               = link_to "[FF XIV Fan site]", root_path, class: "size18 float-left"
-              = link_to "- 逆マーケットボード -", root_path, class: "size16 float-left"
+              = link_to "- 逆マーケットボード・テスト運用中 -", root_path, class: "size16 float-left"
             .header-box__search
 
               #notice= notice
@@ -27,12 +27,12 @@
                 .head-my-character__name
                   = current_user.name
                 .head-my-character__status
-                  = link_to "ログアウト", logout_path, data: { confirm: '本当にログアウトしますか?' }
+                  = link_to "ログアウト", logout_path, data: { confirm: '本当にログアウトしますか?' }, class: "display-inline"
               - else
                 .head-my-character__name
-                  = link_to "ログイン", login_path
+                  = link_to "ログイン", login_path, class: "display-inline"
                 .head-my-character__status
-                  = link_to "新規登録", signup_path
+                  = link_to "新規登録", signup_path, class: "display-inline"
         .header__main-nav
 
           = search_form_for @search, url: items_path do |f|
