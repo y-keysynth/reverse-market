@@ -61,7 +61,6 @@
     &__name {
       height: 40px;
       padding-top: 5px;
-      padding-left: 40px;
       font-weight: bold;
       // line-height: 40px;
       // display: flex;
@@ -218,7 +217,7 @@
     }
     &__name {
       color: #cccccc;
-      padding-left: 35px;
+      // padding-left: 35px;
       margin: 5px;
       margin-top: 20px;
       font-weight: bold;
@@ -239,6 +238,18 @@
       top: 8px;
       left: 123px;
     }
+  }
+
+  .user-box {
+    display: flex;
+    &__face {
+      font-size: 30px;
+      margin-right: 5px;
+    }
+    &__name {
+
+    }
+
   }
 
   .form-size-server-dc {
