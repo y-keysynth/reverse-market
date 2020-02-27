@@ -3,7 +3,7 @@
     .login-container__title
       新規登録
     .login-container__form
-      = form_with model: @user, url: signup_path do |f|
+      = form_with model: @user, url: signup_path, data: { remote: false } do |f|
         .field
           コメントに書くパスワード
           %br/

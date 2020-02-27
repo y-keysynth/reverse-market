@@ -2,7 +2,6 @@ require 'mechanize'
 
 class Scraping
   def self.lodestone_url(url)
-    url = "https://jp.finalfantasyxiv.com/lodestone/character/28815431/blog/4345570/"
     agent = Mechanize.new
     page = agent.get(url)
     blog_url = url.sub(/blog.*/m, "")
