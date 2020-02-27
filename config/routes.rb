@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     # post "signup", :to => "signups#create"
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
+    get "sign_in" => "devise/sessions#new"
   end
 
   # get "signup", :to => "signups#new"

@@ -29,8 +29,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       )
       if @user.password  == @user.password_confirmation && $one_time_ra_password == check[1]
         if @user_login.save
-          # session[:id] = @user_login.id
           flash[:notice] = "アカウント登録が完了しました。"
+          session[:id] = @user_login.id
+          sign_in User.find(session[:id]) unless user_signed_in?
           redirect_to root_path
         else
           render "users/registrations/new.html.haml"
@@ -44,10 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_params
     params.require(:user).permit(:url, :email, :password, :password_confirmation)
-  end
-
-  def current_user
-    @current_user ||= User.find(session[:id])
   end
 
   # protected
