@@ -22,11 +22,10 @@
               .item-container__price
                 = "値段：#{item.price.to_s(:delimited)} ギル"
             .item-container__name
-              = link_to item.user.url, target: "_blank" do
-                = item.user.name
-                %br
-                .form-size-server-dc
-                  = "#{item.user.dc}(#{item.user.server})"
+              = item.user.name
+              %br
+              .form-size-server-dc
+                = "#{item.user.dc}(#{item.user.server})"
             - if current_user == nil
             - elsif current_user.id == item.user_id and item.seller_id == nil
               .item-container__edit-destroy-box

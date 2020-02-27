@@ -5,7 +5,12 @@
         「買います」募集の詳細
       .item-box
         .item-box__name.margin-bottom-10
-          = @item.user.name
+          .name-link
+            = link_to @item.user.url, target: "_blank" do
+              = @item.user.name
+              %br
+              .form-size-server-dc
+                = "#{@item.user.dc}(#{@item.user.server})"
         - if @item.seller_id != nil
           .triangle
           .item-box__day
@@ -14,8 +19,11 @@
           .item-box__title
             = "「#{@item.title}」"
           .item-box__price
-            = "#{@item.price.to_s(:delimited)} ギル"
+            = "値段：#{@item.price.to_s(:delimited)} ギル"
           .item-box__details
+            .details-border
+              %i.fas.fa-book-reader
+              詳細
             = @item.details
           - if current_user == nil
           - elsif @item.seller_id == current_user.id
@@ -38,7 +46,11 @@
                     .arrow_l
                       お金
               .transaction-box__name
-                = @item.user.name
+                = link_to @item.user.url, target: "_blank" do
+                  = @item.user.name
+                  %br
+                  .form-size-server-dc
+                    = "#{@item.user.dc}(#{@item.user.server})"
           - elsif @item.seller_id != current_user.id and @item.user.id != current_user.id
           - else
             .transaction-details.margin-top-10
@@ -60,7 +72,7 @@
                     .arrow_l
                       商品
               .transaction-box__name
-                = @item.user.name
+                = @sell_user.name
         - else
           .item-box__day
             = @item.created_at.to_s(:datetime_jp)
@@ -68,8 +80,11 @@
           .item-box__title
             = "「#{@item.title}」を買います！！"
           .item-box__price
-            = "#{@item.price.to_s(:delimited)} ギル"
+            = "値段：#{@item.price.to_s(:delimited)} ギル"
           .item-box__details
+            .details-border
+              %i.fas.fa-book-reader
+              詳細
             = @item.details
           - if current_user == nil
           - elsif @item.seller_id == nil and current_user.id != @item.user_id
