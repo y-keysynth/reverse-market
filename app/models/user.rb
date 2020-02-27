@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_items, through: :likes, source: :item
 
+  validates :email,   presence: true, uniqueness: true
+  validates :url,     presence: true, uniqueness: true
+  validates :name,    presence: true
+  validates :dc,      presence: true
+  validates :server,  presence: true
 end
