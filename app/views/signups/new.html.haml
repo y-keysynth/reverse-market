@@ -1,0 +1,70 @@
+#wrapper
+  .login-container
+    .login-container__title
+      新規登録
+    .login-container__form
+      = form_with(model: @user, local: true, url: signup_path) do |f|
+        -# = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :name, "名前"
+          %br/
+          = f.text_field :name, autofocus: true, autocomplete: "name"
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        = f.submit "新規登録する", class: "actions"
+
+-# <font color=white>
+-# %h2 Sign up URL版
+-# = form_with model: @user, url: signup_path do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     %br/
+-#     コメントに書く文字列
+-#     %br/
+-#     -# = SecureRandom.alphanumeric()
+-#     1234567890
+
+-#   .field
+-#     %br/
+-#     = f.label :comment, "コメント"
+-#     %br/
+-#     = f.text_field :comment, autofocus: true
+-#   .field
+-#     %br/
+-#     = f.label :url, "URL"
+-#     %br/
+-#     = f.text_field :url, autofocus: true
+-#   .field
+-#     %br/
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     %br/
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     %br/
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "users/shared/links"
