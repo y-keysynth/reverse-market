@@ -16,9 +16,7 @@ end
     root_path
   end
 
-
   private
-
   def production?
     Rails.env.production?
   end
