@@ -14,7 +14,7 @@
               .item-box__title
                 = "「#{item.title}」"
               .item-box__price
-                = "#{item.price.to_s(:delimited)} ギル"
+                = "値段：#{item.price.to_s(:delimited)} ギル"
             - else
               .item-box__day
                 = item.created_at.to_s(:datetime_jp)
@@ -22,9 +22,12 @@
               .item-box__title
                 = "「#{item.title.to_s(:delimited)}」を買います！！"
               .item-box__price
-                = "#{item.price.to_s(:delimited)} ギル"
+                = "値段：#{item.price.to_s(:delimited)} ギル"
             .item-box__name
               = item.user.name
+              %br
+              .form-size-server-dc
+                = "#{item.user.dc}(#{item.user.server})"
               - if current_user == nil
               - elsif current_user.id == item.user_id && item.seller_id == nil
                 .edit-destroy-box

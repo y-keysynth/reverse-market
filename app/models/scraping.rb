@@ -11,7 +11,7 @@ class Scraping
     chara_name = page.search('.frame__chara__name').inner_text
     # puts "ユーザー名：#{chara_name}"
     server_and_dc = page.search('.frame__chara__world')
-    server = server_and_dc.inner_text.sub(/\(.*/m, "")
+    server = server_and_dc.inner_text.sub(/.\(.*/m, "")
     # puts "サーバー名：#{server}"
     dc = server_and_dc.inner_text.match(/(?<=\().*?(?=\))/)
     # puts "dc：#{dc}"
