@@ -7,10 +7,14 @@
         .item-box__name.margin-bottom-10
           .name-link
             = link_to @item.user.url, target: "_blank" do
-              = @item.user.name
-              %br
-              .form-size-server-dc
-                = "#{@item.user.dc}(#{@item.user.server})"
+              .user-box
+                .user-box__face
+                  %i.fas.fa-user
+                .user-box__name
+                  = @item.user.name
+                  %br
+                  .form-size-server-dc
+                    = "#{@item.user.dc}(#{@item.user.server})"
         - if @item.seller_id != nil
           .triangle
           .item-box__day
