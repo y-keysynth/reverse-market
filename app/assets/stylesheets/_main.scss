@@ -204,12 +204,16 @@
       height: 19px;
       padding-left: 16px;
       font-size: 15px;
+      font-weight: bold;
     }
     &__name {
-      padding-left: 40px;
-      height: 40px;
+      color: #cccccc;
+      padding-left: 35px;
+      margin: 5px;
+      margin-top: 20px;
+      font-weight: bold;
+      size: 12px;
       display: inline-block;
-      background-color: red;
     }
     &__edit-destroy-box {
       display: flex;
@@ -225,6 +229,11 @@
       top: 8px;
       left: 123px;
     }
+  }
+
+  .form-size-server-dc {
+    font-size: 10px;
+    margin-top: 3px;
   }
 
   .display_none {
