@@ -81,11 +81,18 @@
     border-top: solid 3px #333333;/*上線*/
   }
 
+  .margin-fix {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    // background-color: red;
+
+  }
 
   .margin-left-10 {
     margin-left: 8px;
   }
   .margin-bottom-10 {
+    width: 100%;
     margin-bottom: 8px;
     border-bottom: solid 8px #333333;
   }
