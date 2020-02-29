@@ -51,5 +51,5 @@ production:
   <<: *default
   database: reverse-market_production
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: ff14ra
   socket: /var/lib/mysql/mysql.sock
