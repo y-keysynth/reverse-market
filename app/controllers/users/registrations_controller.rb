@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         server: check[3],
         dc: check[4],
       )
-      if (@user.password  == @user.password_confirmation) && ($one_time_ra_password == check[1]) && @user.save
+      if @user.save && (@user.password  == @user.password_confirmation) && ($one_time_ra_password == check[1])
         # if @user.save
         flash[:notice] = "アカウント登録が完了しました。"
         session[:id] = @user.id
@@ -40,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         # @user.save
         # binding.pry
-        @user.save
+        # @user.save
         render "new"
       end
     end
