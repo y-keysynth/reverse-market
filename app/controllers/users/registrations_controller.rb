@@ -9,14 +9,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
-    $one_time_ra_password = SecureRandom.alphanumeric()
-    # $one_time_ra_password = "1234567890"
+    # $one_time_ra_password = SecureRandom.alphanumeric()
+    $one_time_ra_password = "1234567890"
   end
 
   def create
     @user = User.new(user_params)
     if @user.url == ""
-      render "users/registrations/new.html.haml"
+      @user.save
+      render "new"
     elsif
       check = Scraping.lodestone_url(@user.url)
       @user_login = User.new(
@@ -27,17 +28,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
         server: check[3],
         dc: check[4],
       )
-      if @user.password  == @user.password_confirmation && $one_time_ra_password == check[1]
-        if @user_login.save
-          flash[:notice] = "アカウント登録が完了しました。"
-          session[:id] = @user_login.id
-          sign_in User.find(session[:id]) unless user_signed_in?
-          redirect_to root_path
-        else
-          render "users/registrations/new.html.haml"
-        end
+      if @user.password  == @user.password_confirmation && $one_time_ra_password == check[1] && @user_login.save
+        # if @user_login.save
+        flash[:notice] = "アカウント登録が完了しました。"
+        session[:id] = @user_login.id
+        sign_in User.find(session[:id]) unless user_signed_in?
+        redirect_to root_path
+        # else
+          # render "new"
+        # end
       else
-        render "users/registrations/new.html.haml"
+        render "new"
       end
     end
   end

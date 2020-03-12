@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include ActiveModel::Model
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +11,10 @@ class User < ApplicationRecord
 
   validates :email,   presence: true, uniqueness: true
   validates :url,     presence: true, uniqueness: true
-  validates :name,    presence: true
-  validates :dc,      presence: true
-  validates :server,  presence: true
+
+  validates :url, presence: { message: "入力してください" }
+
+  # validates :name,    presence: true
+  # validates :dc,      presence: true
+  # validates :server,  presence: true
 end
