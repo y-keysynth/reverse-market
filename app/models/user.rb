@@ -9,11 +9,7 @@ class User < ApplicationRecord
   has_many :like_items, through: :likes, source: :item
 
   validates :email,   presence: true, uniqueness: true
-  # validates :url,     presence: true, uniqueness: true
-
-  # DBに保存されないデータのバリデーション
-  attr_accessor :url
-  validates :url, presence: { message: "が入力されていません。" }, uniqueness: true
+  validates :url,     presence: true, uniqueness: true
 
   # validates :name,    presence: true
   # validates :dc,      presence: true
