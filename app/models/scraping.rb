@@ -16,7 +16,7 @@ class Scraping
     dc = server_and_dc.inner_text.match(/(?<=\().*?(?=\))/)
     # puts "dc：#{dc}"
     return blog_url, blog_password, chara_name, server, dc
-    end
+  end
 end
 
 # class Scraping
