@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   @user = User.find_by(id: params[:id])
   # end
 
+  #tset変更
   def new
     @user = User.new
     $one_time_ra_password = SecureRandom.alphanumeric()
