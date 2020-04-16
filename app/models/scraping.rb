@@ -1,21 +1,29 @@
 require 'mechanize'
 
 class Scraping
+
+  include ActiveModel::Model
+  attr_accessor :url
+  validates :url, presence: { message: "入力してください" }
+
   def self.lodestone_url(url)
     agent = Mechanize.new
-    page = agent.get(url)
-    blog_url = url.sub(/blog.*/m, "")
-    # puts "URL:#{blog_url}"
-    blog_password = page.search('.txt_selfintroduction').inner_text
-    # puts "パスワード：#{blog_password}"
-    chara_name = page.search('.frame__chara__name').inner_text
-    # puts "ユーザー名：#{chara_name}"
-    server_and_dc = page.search('.frame__chara__world')
-    server = server_and_dc.inner_text.sub(/.\(.*/m, "")
-    # puts "サーバー名：#{server}"
-    dc = server_and_dc.inner_text.match(/(?<=\().*?(?=\))/)
-    # puts "dc：#{dc}"
-    return blog_url, blog_password, chara_name, server, dc
+    if url == ""
+    elsif
+      page = agent.get(url)
+      blog_url = url.sub(/blog.*/m, "")
+      # puts "URL:#{blog_url}"
+      blog_password = page.search('.txt_selfintroduction').inner_text
+      # puts "パスワード：#{blog_password}"
+      chara_name = page.search('.frame__chara__name').inner_text
+      # puts "ユーザー名：#{chara_name}"
+      server_and_dc = page.search('.frame__chara__world')
+      server = server_and_dc.inner_text.sub(/.\(.*/m, "")
+      # puts "サーバー名：#{server}"
+      dc = server_and_dc.inner_text.match(/(?<=\().*?(?=\))/)
+      # puts "dc：#{dc}"
+      return blog_url, blog_password, chara_name, server, dc
+    end
   end
 end
 
