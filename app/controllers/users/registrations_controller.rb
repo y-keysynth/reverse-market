@@ -50,11 +50,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(user_params)
+    check = Scraping.lodestone_url(@user.url)
     if @user.url == ""
       @user.save
-      render "users/registrations/new.html.haml"
+      render "new"
     elsif
-      check = Scraping.lodestone_url(@user.url)
       @user_login = User.new(
         email: @user.email,
         password: @user.password,
@@ -64,17 +64,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
         dc: check[4],
       )
       if @user.password  == @user.password_confirmation && $one_time_ra_password == check[1]
-        if @user_login.save
+        @user = @user_login
+        if @user.save
           flash[:notice] = "アカウント登録が完了しました。"
-          session[:id] = @user_login.id
+          session[:id] = @user.id
           sign_in User.find(session[:id]) unless user_signed_in?
           redirect_to root_path
         else
           render "users/registrations/new.html.haml"
         end
       else
+        @user.save
         render "users/registrations/new.html.haml"
       end
+      @user.save
     end
   end
 
