@@ -10,8 +10,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #tset変更
   def new
     @user = User.new
-    # $one_time_ra_password = SecureRandom.alphanumeric()
-    $one_time_ra_password = "1234567890"
+    $one_time_ra_password = SecureRandom.alphanumeric()
+    # $one_time_ra_password = "1234567890"
   end
 
   # def create
