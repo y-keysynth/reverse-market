@@ -2,7 +2,8 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Reverse Market
+    %title 逆出品サイト
+    -# %title Reverse Market
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -14,7 +15,7 @@
         .header__brand
           .header-box
             .header-box__brand
-              = link_to "[逆募集サイト]", root_path, class: "size18 float-left"
+              = link_to "[逆出品サイト]", root_path, class: "size18 float-left"
               -# = link_to "[FF XIV Fan site]", root_path, class: "size18 float-left"
               -# = link_to "- 逆マーケットボード・テスト運用中 -", root_path, class: "size16 float-left"
             .header-box__search
