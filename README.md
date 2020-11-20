@@ -1,24 +1,52 @@
-# README
+# 接続情報
+http://18.178.253.251/  
+ID: admin  
+Pass: 201309  
+  
+* テスト用アカウント
+  * 売却者用
+    * メールアドレス: seller@testaccount.com
+    * パスワード: password
+  * 出品者用
+    * メールアドレス: order@testaccount.com
+    * パスワード: password  
+<br/>
+  
+# このアプリについて
+逆出品サイトです。  
+  
+<img src="https://user-images.githubusercontent.com/54430228/75004921-16b29100-54b0-11ea-9d88-4bf6bd398e28.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/54430228/75005078-917bac00-54b0-11ea-9747-1011904bec07.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/54430228/75005082-93de0600-54b0-11ea-9775-1795a044fdb6.png" width=50% height=50%>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+逆出品について。  
+「○○という商品を△△円で書います」  
+「◯◯という商品を△△円で売ってくれる方募集」  
+というように「○○という商品を△△円で売ります」と真逆の考えです。  
+<br/>
+  
+# 制作理由
+オンラインゲーム（以下オンゲー）のファンサイトとして運用を考えたため。  
+しかし、それは実際にゲームをプレイしていないと使えない仕様にするため、ポートフォリオとして使えません。そこで、動作を確認するためだけに作ったのが本アプリとなります。  
+実際に運用する物は多少デザインが変更され、新規登録の仕組みが変更されたものになります。  
+  
+* 小規模でいいので運用したい。  
+* 逆出品、逆募集、逆購入というようなシステムが欲しいという声が昔からあった。  
+（ヤフオクやメルカリ、オンゲー内のマーケットボード等のCtoCシステムを利用しているユーザーの声を耳にしたため）<br/>
+  
+という理由から、文字のみで商品がわかり、逆出品が物理的に出来ないのは何かと考えたらオンゲーだったから。    
+<br/>
+  
+# 今後について
+・某オンゲーのファンサイトとして、まずはテスト運用をを考えているので、なりすまし対策を考えた新規登録の方法に変更する。  
+・それ用のテストコードを書く。   
+・運用後はユーザーからフィードバックをもらう。  
+・エラーメッセージを見やすくする。  
+・退会を可能にする。  
+<br/>
+  
+# DB設計
+<img src="https://user-images.githubusercontent.com/54430228/74808740-e1cb0080-532e-11ea-8309-0b65d319b381.png">
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
