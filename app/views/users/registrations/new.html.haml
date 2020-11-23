@@ -6,12 +6,12 @@
       = form_with model: @user, url: signup_path, data: { remote: false } do |f|
         = render 'layouts/error_messages', model: f.object
         .field
-          コメントに書くパスワード
+          日記に書くパスワード
           %br/
           .password-box
             = $one_time_ra_password
         .field
-          = f.label :url, "URL"
+          = f.label :url, "パスワードを書いた日記のURL"
           %br/
           = f.text_field :url, autofocus: true
         .field
