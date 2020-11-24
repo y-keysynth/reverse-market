@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
     get "sign_in" => "devise/sessions#new"
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
   # get "signup", :to => "signups#new"
