@@ -16,4 +16,12 @@ class User < ApplicationRecord
   # validates :name,    presence: true
   # validates :dc,      presence: true
   # validates :server,  presence: true
+
+  def self.guest
+    find_or_create_by!(email: 'test1@test.com') do |user| # 開発環境
+      # find_or_create_by!(email: 'test1@test.com') do |user| # 本番環境
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
 end

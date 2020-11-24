@@ -54,4 +54,27 @@
     margin: 1px;
     border: 1px #c0c0c0 solid;
   }
+
+  .guest_login_actions {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    line-height: 1.3;
+    display: inline-block;
+    text-decoration: none;
+    color: #e5e5e5;
+    border: solid 2px blue;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: #0b80dc;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .guest_login_actions:hover {
+    background: blue;
+    color: #e5e5e5;
+  }
 }
