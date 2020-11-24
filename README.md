@@ -63,6 +63,7 @@ FF14は、公式に個人ページがあり、そこにログインするため�
 
 # DB設計
 <img src="https://user-images.githubusercontent.com/54430228/74808740-e1cb0080-532e-11ea-8309-0b65d319b381.png">
+
 - 新規登録時、name, dc, serverはスクレイピングされ自動的に登録されます。
 - urlは新規登録時に入力したurlが短縮されたものがDBに登録されます。
 <br>
