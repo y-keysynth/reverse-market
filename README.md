@@ -1,8 +1,15 @@
+# URL   
+http://54.250.54.75/ 
+
 # アプリケーションについて
 FF14のファンサイトとして作った「逆出品サイト」です。  
 - 逆出品とは  
 「○○という商品を△△円で<u>書います</u>」というシステムです。  
 フリマアプリやネットオークションの「○○という商品を△△円で<u>売ります</u>」とは真逆のシステムになります。   
+
+<img src="https://user-images.githubusercontent.com/54430228/100069008-96282300-2e7b-11eb-80de-e8d665784e4d.png" width=50% height=50%>
+
+<img src="https://user-images.githubusercontent.com/54430228/100069247-de474580-2e7b-11eb-9731-03c5e1a2a60d.png" width=50% height=50%>
 
 <!-- - 制作理由  
 フリマやネットオークションには、昔から「○○という商品を△△円で書いたい」という考える方がいて、タイトルを逆出品や逆募集と書いて工夫されているのを見てきました。  
@@ -48,34 +55,13 @@ FF14は、公式に個人ページがあり、そこにログインするため�
 - capistrano 3.12
 - RSpec
 
-# 接続情報
-http://54.250.54.75/ 
-ID: admin  
-Pass: 201309  
-  
-* テスト用アカウント
-  * 売却者用
-    * メールアドレス: seller@testaccount.com
-    * パスワード: password
-  * 出品者用
-    * メールアドレス: order@testaccount.com
-    * パスワード: password  
-<br/>
-
-<img src="https://user-images.githubusercontent.com/54430228/75004921-16b29100-54b0-11ea-9d88-4bf6bd398e28.png" width=50% height=50%>
-<img src="https://user-images.githubusercontent.com/54430228/75005078-917bac00-54b0-11ea-9747-1011904bec07.png" width=50% height=50%>
-<img src="https://user-images.githubusercontent.com/54430228/75005082-93de0600-54b0-11ea-9775-1795a044fdb6.png" width=50% height=50%>
-
-  
+# DB設計
+<img src="https://user-images.githubusercontent.com/54430228/74808740-e1cb0080-532e-11ea-8309-0b65d319b381.png">
 
 # 今後の改善点
 - 売買が成立したらメールが送信されるようにする。
 - 売買が成立したらメッセージのやりとりができるようにする。
 - 退会を可能にする。  
+- 新規登録の時にエラーが発生すると、URLがDBに登録されるURLに短縮されてしまうので、そうならないようにする。
 
 <br/>
-  
-# DB設計
-<img src="https://user-images.githubusercontent.com/54430228/74808740-e1cb0080-532e-11ea-8309-0b65d319b381.png">
-
-
