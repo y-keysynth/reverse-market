@@ -1,24 +1,67 @@
-# README
+# URL   
+http://54.250.54.75/ 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーションについて
+FF14のファンサイトとして作った「逆出品サイト」です。  
+- 逆出品とは  
+「○○という商品を△△円で<u>書います</u>」というシステムです。  
+フリマアプリやネットオークションの「○○という商品を△△円で<u>売ります</u>」とは真逆のシステムになります。   
 
-Things you may want to cover:
+<img src="https://user-images.githubusercontent.com/54430228/100069008-96282300-2e7b-11eb-80de-e8d665784e4d.png" width=50% height=50%>
 
-* Ruby version
+<img src="https://user-images.githubusercontent.com/54430228/100069247-de474580-2e7b-11eb-9731-03c5e1a2a60d.png" width=50% height=50%>
 
-* System dependencies
+<!-- - 制作理由  
+フリマやネットオークションには、昔から「○○という商品を△△円で書いたい」という考える方がいて、タイトルを逆出品や逆募集と書いて工夫されているのを見てきました。  
+オンラインゲームでも同様に考える方がおられ、ゲーム内のCtoCではユーザーの工夫する余地がないので、「逆出品サイト」を作りました。 -->
 
-* Configuration
+<br>
 
-* Database creation
+# アプリケーション機能について
+- ユーザー登録(devise, Mechanize)(注1)
+- ログイン機能(devise)
+- 募集作成機能
+- 募集の編集・削除機能
+- 募集の状況(募集中・売買成立)の一覧表示機能
+- ウォッチリスト機能(Ajax)  
+- ページネーション機能(kaminari)
+- 検索機能(ransack)
 
-* Database initialization
+注1：なりすまし対策のため、実際にゲームのキャラクターを持っていないと登録出来ない仕組みにしています
 
-* How to run the test suite
+<!-- 
+■<b>なりすまし対策とユーザー登録について</b>  
+FF14は、公式に個人ページがあり、そこにログインするためにID・パスワード・ワンタイムパスワードが必要です。  
+その個人ページには日記を書く機能があります。  
+公式HPはセキュリティ対策を行っているので、公式サイトの個人ページの日記を利用してなりすまし対策を考えました。
 
-* Services (job queues, cache servers, search engines, etc.)
+1. 日記に、本アプリの新規登録画面にあるパスワードを記入する
+2. その日記のURLを本アプリの新規登録画面のURLにコピペする
+3. メールアドレスやパスワードを入力し「新規登録する」をクリックする
+4. 新規登録が成功すると、スクレイピングによりキャラクターデータがDBに登録されます
 
-* Deployment instructions
+(例をあげると、ツイッターにパスワードを書いて、そのURLをアプリに入力し、パスワードが一致したから本人確認が出来たという仕組みです) -->
 
-* ...
+# 使用技術
+- ruby 2.5.1
+- Ruby on Rails 5.2.4.1
+- MySQL 5.6
+- Nginx
+- puma
+- AWS
+  - VPC
+  - EC2
+  - RDS
+- capistrano 3.12
+- RSpec
+
+# DB設計
+<img src="https://user-images.githubusercontent.com/54430228/74808740-e1cb0080-532e-11ea-8309-0b65d319b381.png">
+
+# 今後の改善点
+- 売買が成立したらメールが送信されるようにする。
+- 売買が成立したらメッセージのやりとりができるようにする。
+- 退会を可能にする。  
+- 新規登録の時にエラーが発生すると、URLがDBに登録されるURLに短縮されてしまうので、そうならないようにする。
+
+<br/>
