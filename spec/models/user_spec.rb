@@ -2,21 +2,16 @@ require 'rails_helper'
 
 describe User do
   describe '#create' do
-    # 運用用「urlとemailとランダムパスワード、passwordとpassword_confirmationが存在すれば登録できること」に変更
-    it "nameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
+    it "urlとemailとランダムパスワード、passwordとpassword_confirmationが存在すれば登録できること" do
       user = build(:user)
       expect(user).to be_valid
     end
 
-    # 運用用「urlが空では登録できないこと」に変更
-    it "nameが空では登録できないこと" do
-      user = build(:user, name: nil)
+    it "urlが空では登録できないこと" do
+      user = build(:user, url: nil)
       user.valid?
-      expect(user.errors[:name]).to include("を入力してください")
+      expect(user.errors[:url]).to include("を入力してください")
     end
-
-    # 運用用「ランダムパスワードが空では登録できないこと」
-    # 運用用「urlが空では登録できないこと」
 
     it "emailが空では登録できないこと" do
       user = build(:user, email: nil)
@@ -55,12 +50,11 @@ describe User do
       expect(user.errors[:password]).to include("は6文字以上に設定して下さい。")
     end
 
-    # 運用用「重複したurlが存在する場合登録できないこと」に変更
-    it "重複した名前が存在する場合登録できないこと" do
+    it "重複したurlが存在する場合登録できないこと" do
       user = create(:user)
-      another_user = build(:user, name: user.name)
+      another_user = build(:user, name: user.url)
       another_user.valid?
-      expect(another_user.errors[:name]).to include("はすでに存在します")
+      expect(another_user.errors[:url]).to include("はすでに存在します")
     end
 
   end
